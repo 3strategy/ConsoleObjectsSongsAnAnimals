@@ -30,5 +30,20 @@
         sum += s.GetLength();
       return sum / sss.Length;
     }
+
+    static double TheLongestSong(Song[] sss)
+    {
+      int max = 0;
+      int maxInd = 0;
+      for (int i = 0; i < sss.Length; i++)
+      {
+        if (sss[i].GetLength() > max)
+        {
+          max = sss[i].GetLength();
+          maxInd = i;
+        }
+      }
+      return maxInd;
+    }
   }
 }
