@@ -5,9 +5,16 @@
     static void Main(string[] args)
     {
       //SongPorogram();
-      Zoo z = new Zoo(10);
-      z.Fill();
-      Console.WriteLine(z.RemoveAnimalByName("James"));
+      Zoo zzz = new Zoo(10);
+      zzz.Fill();
+      zzz.Clear5();
+      Console.WriteLine(zzz.RemoveAnimalByName("James"));
+      //Animal a = z.GetOrCreateByName("Joee");
+      Console.WriteLine("# of free animals: " + zzz.CountFreeAnimals());
+      Console.WriteLine("# of Dolphins: " + zzz.CountAnimals("Dolphin"));
+      Console.WriteLine("Max Age: " + zzz.GetMaxAge());
+      Console.WriteLine("Min Age: " + zzz.GetMinAge());
+      Console.WriteLine("Avg Age: " + zzz.GetAverage());
     }
 
     static void SongPorogram()

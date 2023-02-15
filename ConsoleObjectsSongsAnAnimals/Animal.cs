@@ -9,20 +9,36 @@ namespace ConsoleObjectsSongsAnAnimals
   internal class Animal
   {
     private int age;
-    private string type;
+    private string specimen;
     private string name;
     private ConsoleColor color;
     private double weight;
     private bool isReleased;
 
-    public Animal(int age, string type, string name, ConsoleColor color, double weight, bool isReleased)
+    private static Random rnd = new Random();
+    private static string[] names = { "James", "Leo", "Jen", "Boots", "Klumi", "Gofer", "Bill", "Trump", "Obama" };
+    private static ConsoleColor[] colors = { ConsoleColor.Red, ConsoleColor.Yellow, ConsoleColor.Black, ConsoleColor.White };
+    private static string[] sugim = { "Cat", "Dog", "Fish", "Giraph",
+      "Elephant", "Monkey", "Deer", "Parrot","Lion","Eagle",
+      "Kangeroo","Bird","Gorilla","Dolphin","Pinguin","Bear","Horse","Otter","Snake","Turtle" };
+    public Animal(int age, string specimen, string name, ConsoleColor color, double weight, bool isReleased)
     {
       this.age = age;
-      this.type = type;
+      this.specimen = specimen;
       this.name = name;
       this.color = color;
       this.weight = weight;
       this.isReleased = isReleased;
+    }
+
+    /// <summary>
+    /// פעולה בונה מעתיקה
+    /// באמצעות קריאה לבנאי הקיים והעברת ערכי הערכים
+    /// </summary>
+    /// <param name="other"></param>
+    public Animal(Animal other) : this(other.age, other.specimen, other.name, other.color, other.weight, other.isReleased)
+    {
+
     }
 
     public int GetAge()
@@ -34,13 +50,13 @@ namespace ConsoleObjectsSongsAnAnimals
       age = value;
     }
 
-    public string GetType()
+    public string GetSpecimen()
     {
-      return type;
+      return specimen;
     }
     public void SetType(string value)
     {
-      type = value;
+      specimen = value;
     }
 
     public string GetName()
@@ -78,5 +94,16 @@ namespace ConsoleObjectsSongsAnAnimals
     {
       isReleased = value;
     }
+    /// <summary>
+    /// generate a random animal ouf of a selection of names, types, and colors.
+    /// </summary>
+    /// <returns></returns>
+    static public Animal CreateRandomAnimal()
+    {
+      return new Animal(rnd.Next(30), sugim[rnd.Next(sugim.Length)],
+          names[rnd.Next(names.Length)], colors[rnd.Next(colors.Length)], Math.Round(rnd.NextDouble() * 100, 1), rnd.Next(2) == 1);
+    }
+
+    
   }
 }
