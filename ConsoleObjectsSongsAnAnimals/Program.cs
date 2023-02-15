@@ -4,7 +4,10 @@
   {
     static void Main(string[] args)
     {
-      SongPorogram();
+      //SongPorogram();
+      Zoo z = new Zoo(10);
+      z.Fill();
+      Console.WriteLine(z.RemoveAnimalByName("James"));
     }
 
     static void SongPorogram()
